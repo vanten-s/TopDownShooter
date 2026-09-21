@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 
     public float inputSensitivity;
     public float rotationSpeed;
+    public GameObject bullet;
 
     private InputAction move;
     private Rigidbody2D rigidbodyComponent;
@@ -38,5 +39,11 @@ public class PlayerScript : MonoBehaviour
     {
         Vector2 inputFixed = inputSensitivity * Time.fixedDeltaTime * movementInput;
         rigidbodyComponent.linearVelocity += inputFixed;
+    }
+
+    void Shoot()
+    {
+        GameObject bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
+
     }
 }
